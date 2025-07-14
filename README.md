@@ -1,21 +1,39 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19919315&assignment_repo_type=AssignmentRepo)
-# Testing and Debugging MERN Applications
+# 🐞 BugTracker
 
-This assignment focuses on implementing comprehensive testing strategies for a MERN stack application, including unit testing, integration testing, and end-to-end testing, along with debugging techniques.
+A full-stack **Bug Tracking Application** built with the MERN stack (MongoDB, Express.js, React.js, Node.js), featuring **unit, integration, and component testing**, as well as **robust debugging and error handling** practices.
 
-## Assignment Overview
+---
 
-You will:
-1. Set up testing environments for both client and server
-2. Write unit tests for React components and server functions
-3. Implement integration tests for API endpoints
-4. Create end-to-end tests for critical user flows
-5. Apply debugging techniques for common MERN stack issues
+## 📌 Project Overview
+
+This application allows users to:
+
+- Report bugs using a simple form.
+- View all reported bugs.
+- Update bug status (`Open`, `In Progress`, `Resolved`).
+- Delete bugs.
+- Includes automated tests (unit, integration, component).
+- Implements debugging tools and error boundaries for reliability.
+
+---
+
+## 🛠️ Technologies Used
+
+- **Frontend:** React, Vite, Axios, React Testing Library, Jest
+- **Backend:** Express, Node.js, MongoDB, Mongoose, Supertest, Jest
+- **Testing:** Jest, Supertest, React Testing Library
+- **Debugging:** Chrome DevTools, Node.js Inspector, Console logs, Error Boundaries
+
+---
+
+## 📁 Project Structure
+
+
 
 ## Project Structure
 
 ```
-mern-testing/
+BugTracker/
 ├── client/                 # React front-end
 │   ├── src/                # React source code
 │   │   ├── components/     # React components
@@ -35,54 +53,59 @@ mern-testing/
 │       └── integration/    # Integration tests
 ├── jest.config.js          # Jest configuration
 └── package.json            # Project dependencies
+|──.gitignore
 ```
 
-## Getting Started
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Follow the setup instructions in the `Week6-Assignment.md` file
-4. Explore the starter code and existing tests
-5. Complete the tasks outlined in the assignment
+---
 
-## Files Included
+## 🚀 Getting Started
 
-- `Week6-Assignment.md`: Detailed assignment instructions
-- Starter code for a MERN application with basic test setup:
-  - Sample React components with test files
-  - Express routes with test files
-  - Jest and testing library configurations
-  - Example tests for reference
+### 🔧 Prerequisites
 
-## Requirements
+- Node.js ≥ 18
+- pnpm (preferred) or npm
+- MongoDB Atlas or Local DB URI
 
-- Node.js (v18 or higher)
-- MongoDB (local installation or Atlas account)
-- npm or yarn
-- Basic understanding of testing concepts
+### 📥 Installation
 
-## Testing Tools
+Clone the repository:
 
-- Jest: JavaScript testing framework
-- React Testing Library: Testing utilities for React
-- Supertest: HTTP assertions for API testing
-- Cypress/Playwright: End-to-end testing framework
-- MongoDB Memory Server: In-memory MongoDB for testing
+```
+git clone [https://github.com/YOUR_USERNAME/mern-bug-tracker.git](https://github.com/PLP-MERN-Stack-Development/week-6-test-debug-assignment-RebMir.git)
+cd week-6-test-debug-assignment-RebMir
+```
 
-## Submission
+Install dependencies:
+```
+# Backend
+cd server
+pnpm install
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+# Frontend
+cd ../client
+pnpm install
+```
 
-1. Complete all required tests (unit, integration, and end-to-end)
-2. Achieve at least 70% code coverage for unit tests
-3. Document your testing strategy in the README.md
-4. Include screenshots of your test coverage reports
-5. Demonstrate debugging techniques in your code
+# 🧠 Testing Approach
+## Backend
+- Unit tests: Validation helpers and controller logic.
 
-## Resources
+- Integration tests: Full API flow using Supertest.
 
-- [Jest Documentation](https://jestjs.io/docs/getting-started)
-- [React Testing Library Documentation](https://testing-library.com/docs/react-testing-library/intro/)
-- [Supertest Documentation](https://github.com/visionmedia/supertest)
-- [Cypress Documentation](https://docs.cypress.io/)
-- [MongoDB Testing Best Practices](https://www.mongodb.com/blog/post/mongodb-testing-best-practices) 
+- Mocking: jest.mock() for isolating MongoDB logic.
+
+## Frontend
+- Component tests: Button, form validation, state rendering.
+
+- Integration tests: Mocking API calls, UI updates.
+
+- Edge case tests: Empty states, loading, error messages.
+
+## 🐛 Debugging Tools & Techniques
+```
+### Tool	                        ### Usage
+console.log()	                Tracing values in frontend/backend
+Chrome DevTools	              Inspecting React components & requests
+Node.js Inspector	            Debugging backend line-by-line
+Error Boundaries	            Capturing runtime UI errors
