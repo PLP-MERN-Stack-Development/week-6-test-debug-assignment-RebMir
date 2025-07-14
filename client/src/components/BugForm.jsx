@@ -5,9 +5,9 @@ const initialState = {
     title: '',
     description: '',
     status: 'open',
-};
+    };
 
-const BugForm = ({ selectedBug, refreshBugs, clearSelection }) => {
+    const BugForm = ({ selectedBug, refreshBugs, clearSelection }) => {
     const [formData, setFormData] = useState(initialState);
 
     useEffect(() => {
@@ -15,9 +15,15 @@ const BugForm = ({ selectedBug, refreshBugs, clearSelection }) => {
     }, [selectedBug]);
 
     const handleChange = (e) => {
-        e.preventDefault();
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    };
 
-        try{
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
             if (selectedBug?._id) {
                 await axios.put(`/api/bugs/${selectedBug._id}`, formData);
             } else {
@@ -33,8 +39,10 @@ const BugForm = ({ selectedBug, refreshBugs, clearSelection }) => {
 
     return (
         <form onSubmit={handleSubmit} className="space-y-4 p-4 bg-white rounded shadow-md">
-            <h2 className="text-lg font-semibold">{selectedBug ? 'Edit Bug' : 'Report New Bug'}</h2>
-            <input 
+            <h2 className="text-lg font-semibold">
+                {selectedBug ? 'Edit Bug' : 'Report New Bug'}
+            </h2>
+            <input
                 type="text"
                 name="title"
                 placeholder="Bug title"
@@ -43,7 +51,6 @@ const BugForm = ({ selectedBug, refreshBugs, clearSelection }) => {
                 required
                 className="w-full border p-2"
             />
-
             <textarea
                 name="description"
                 placeholder="Description"
